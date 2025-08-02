@@ -1,0 +1,209 @@
+:host {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none; 
+}
+
+.stripe-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000;
+  margin: 0;
+  padding: 0;
+  border: none;
+  overflow: hidden;
+  filter: blur(0.9px);
+}
+
+.stripe-background.paused * {
+  animation-play-state: paused !important;
+}
+
+.stripe-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, rgba(255, 0, 0, 0.4) 1px, transparent 1px);
+  background-size: 14px 14px;
+  animation: breathe 4s ease-in-out infinite, flicker 0.15s ease-in-out infinite;
+}
+
+.stripe-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    transparent 50%,
+    rgba(0, 0, 0, 0.1) 50%
+  );
+  background-size: 100% 4px;
+  animation: scan 0.1s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.95; }
+}
+
+@keyframes scan {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(4px); }
+}
+
+@keyframes breathe {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.glitch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, rgba(255, 0, 0, 0.4) 1px, transparent 1px);
+  background-size: 14px 14px;
+  opacity: 0;
+  animation: glitch 15s infinite;
+  pointer-events: none;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.glitch::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, rgba(255, 0, 0, 0.5) 1px, transparent 1px);
+  background-size: 14px 14px;
+  animation: glitch-red 15s infinite;
+}
+
+.glitch::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, rgba(0, 255, 0, 0.4) 1px, transparent 1px);
+  background-size: 14px 14px;
+  animation: glitch-green 15s infinite;
+}
+
+@keyframes glitch {
+  0%, 85% {
+    opacity: 0;
+    transform: translateX(0) scale(1);
+  }
+  86% {
+    opacity: 1;
+    transform: translateX(-5px) scale(1.02);
+    clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);
+  }
+  87% {
+    opacity: 0.8;
+    transform: translateX(5px) scale(0.98);
+    clip-path: polygon(0 40%, 100% 40%, 100% 80%, 0 80%);
+  }
+  88% {
+    opacity: 1;
+    transform: translateX(-2px) scale(1.01);
+    clip-path: polygon(0 20%, 100% 20%, 100% 60%, 0 60%);
+  }
+  89% {
+    opacity: 0.9;
+    transform: translateX(3px) scale(0.99);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  90% {
+    opacity: 0.7;
+    transform: translateX(-1px) scale(1);
+  }
+  91% {
+    opacity: 0;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes glitch-red {
+  0%, 85% { opacity: 0; transform: translateX(0); }
+  86% { opacity: 1; transform: translateX(-3px); }
+  87% { opacity: 0.6; transform: translateX(4px); }
+  88% { opacity: 1; transform: translateX(-1px); }
+  89% { opacity: 0.8; transform: translateX(2px); }
+  90% { opacity: 0.5; transform: translateX(-1px); }
+  91% { opacity: 0; transform: translateX(0); }
+}
+
+@keyframes glitch-green {
+  0%, 85% { opacity: 0; transform: translateX(0); }
+  86% { opacity: 0.7; transform: translateX(3px); }
+  87% { opacity: 0.9; transform: translateX(-4px); }
+  88% { opacity: 0.6; transform: translateX(1px); }
+  89% { opacity: 0.8; transform: translateX(-2px); }
+  90% { opacity: 0.4; transform: translateX(1px); }
+  91% { opacity: 0; transform: translateX(0); }
+}
+
+.glitch-2 {
+  animation-delay: 6s;
+  animation-duration: 18s;
+}
+
+.glitch-3 {
+  animation-delay: 12s;
+  animation-duration: 20s;
+}
+
+.glitch-intense {
+  animation: glitch-intense 25s infinite;
+}
+
+@keyframes glitch-intense {
+  0%, 80% { opacity: 0; }
+  81% { 
+    opacity: 1; 
+    transform: translateX(-8px) scale(1.05);
+    clip-path: polygon(0 0, 100% 0, 100% 30%, 0 30%);
+  }
+  82% { 
+    opacity: 0.8; 
+    transform: translateX(8px) scale(0.95);
+    clip-path: polygon(0 70%, 100% 70%, 100% 100%, 0 100%);
+  }
+  83% { 
+    opacity: 1; 
+    transform: translateX(-4px) scale(1.02);
+    clip-path: polygon(0 10%, 100% 10%, 100% 90%, 0 90%);
+  }
+  84% { 
+    opacity: 0.9; 
+    transform: translateX(4px) scale(0.98);
+  }
+  85% { opacity: 0; }
+}
