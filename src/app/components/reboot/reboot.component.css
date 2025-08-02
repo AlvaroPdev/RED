@@ -1,0 +1,66 @@
+:host {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  background: transparent;
+}
+
+.reboot-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Courier New', monospace;
+  color: #b60000;
+  background: transparent;
+}
+
+.reboot-content {
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  padding: 30px;
+  background: transparent;
+  border: 2px solid #b60000;
+  border-radius: 0;
+  position: relative;
+}
+
+.reboot-text {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #b60000;
+  letter-spacing: 2px;
+}
+
+.reboot-subtitle {
+  font-size: 1rem;
+  margin-bottom: 25px;
+  color: #b60000;
+  letter-spacing: 1px;
+}
+
+.reboot-process {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #b60000;
+  letter-spacing: 1px;
+}
+
+.reboot-progress {
+  margin-bottom: 0;
+}
+
+.progress-bar {
+  font-size: 0.9rem;
+  color: #b60000;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 2px;
+  font-weight: bold;
+} 
