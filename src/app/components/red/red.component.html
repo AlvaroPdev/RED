@@ -1,0 +1,10 @@
+<div class="stripe-background" [class.paused]="isPaused">
+  @for (glitch of glitchElements; track trackByIndex($index)) {
+    <div 
+      class="glitch"
+      [class]="glitch.class"
+      [style.animation-delay]="glitch.delay + 's'"
+      [style.animation-duration]="glitch.duration + 's'">
+    </div>
+  }
+</div>

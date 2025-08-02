@@ -1,0 +1,21 @@
+/* Estilos globales para que los componentes aparezcan encima del fondo */
+app-red {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+}
+
+/* Todos los componentes excepto app-red deben tener z-index mayor */
+*:not(app-red) {
+  position: relative;
+  z-index: 10;
+}
+
+/* Asegurar que el router-outlet y sus componentes tengan z-index correcto */
+router-outlet {
+  position: relative;
+  z-index: 10;
+}
